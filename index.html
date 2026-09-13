@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Duo — Configuration libre</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="setupScreen" class="setup-screen">
+    <div class="setup-shell">
+      <header class="setup-head">
+        <div>
+          <p class="eyebrow">PREMIÈRE CONFIGURATION</p>
+          <h1>Créons votre foyer</h1>
+          <p>Rien n’est prérempli : vous choisissez tout, puis le planning se construit à partir de vos réponses.</p>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress"><div id="progressBar"></div></div>
+          <span id="progressText">Étape 1 / 7</span>
+        </div>
+      </header>
+
+      <main class="setup-card">
+        <section class="step active" data-step="1">
+          <h2>1. Le logement</h2>
+          <div class="choice-grid">
+            <button type="button" class="choice-card" data-radio="homeType" data-value="maison">🏡<strong>Maison</strong></button>
+            <button type="button" class="choice-card" data-radio="homeType" data-value="appartement">🏢<strong>Appartement</strong></button>
+            <button type="button" class="choice-card" data-radio="homeType" data-value="autre">🏠<strong>Autre</strong></button>
+          </div>
+          <div class="form-grid">
+            <label>Surface habitable (m²)<input id="setupHomeArea" type="number" min="1" placeholder="Ex. 80"></label>
+            <label>Nombre de chambres<input id="setupBedrooms" type="number" min="0" placeholder="Ex. 2"></label>
+            <label>Salles de bain<input id="setupBathrooms" type="number" min="0" placeholder="Ex. 1"></label>
+            <label>WC<input id="setupToilets" type="number" min="0" placeholder="Ex. 1"></label>
+          </div>
+        </section>
+
+        <section class="step" data-step="2">
+          <h2>2. Les habitants</h2>
+          <div class="form-grid">
+            <label>Nombre d’adultes<input id="setupAdults" type="number" min="1" placeholder="Ex. 2"></label>
+            <label>Nombre d’enfants<input id="setupChildren" type="number" min="0" placeholder="Ex. 0"></label>
+          </div>
+          <div id="adultNamesBox" class="dynamic-box"></div>
+          <div id="childAgesBox" class="dynamic-box"></div>
+        </section>
+
+        <section class="step" data-step="3">
+          <h2>3. Les animaux</h2>
+          <div class="form-grid">
+            <label>Chiens<input id="setupDogs" type="number" min="0" value="0"></label>
+            <label>Chats<input id="setupCats" type="number" min="0" value="0"></label>
+            <label>Autres animaux<input id="setupOtherPets" type="number" min="0" value="0"></label>
+            <label>Type d’autres animaux<input id="setupOtherPetType" placeholder="Lapin, oiseaux..."></label>
+          </div>
+          <label class="toggle-row"><span>Ajouter une balade hebdomadaire pour les chiens</span><input id="setupDogWalk" type="checkbox"></label>
+        </section>
+
+        <section class="step" data-step="4">
+          <h2>4. Extérieurs</h2>
+          <div class="form-grid">
+            <label>Surface terrain / extérieur (m²)<input id="setupLandArea" type="number" min="0" value="0"></label>
+          </div>
+          <div class="toggle-list">
+            <label class="toggle-row"><span>Jardin / pelouse</span><input id="setupGarden" type="checkbox"></label>
+            <label class="toggle-row"><span>Terrasse / balcon</span><input id="setupTerrace" type="checkbox"></label>
+            <label class="toggle-row"><span>Piscine</span><input id="setupPool" type="checkbox"></label>
+            <label class="toggle-row"><span>Garage</span><input id="setupGarage" type="checkbox"></label>
+            <label class="toggle-row"><span>Abri / dépendance</span><input id="setupShed" type="checkbox"></label>
+            <label class="toggle-row"><span>Haies / arbustes</span><input id="setupHedges" type="checkbox"></label>
+          </div>
+        </section>
+
+        <section class="step" data-step="5">
+          <h2>5. Équipements</h2>
+          <div class="toggle-list">
+            <label class="toggle-row"><span>Lave-vaisselle</span><input id="setupDishwasher" type="checkbox"></label>
+            <label class="toggle-row"><span>Sèche-linge</span><input id="setupDryer" type="checkbox"></label>
+            <label class="toggle-row"><span>Robot aspirateur</span><input id="setupRobotVacuum" type="checkbox"></label>
+            <label class="toggle-row"><span>Climatisation</span><input id="setupAC" type="checkbox"></label>
+            <label class="toggle-row"><span>Cheminée / poêle</span><input id="setupFireplace" type="checkbox"></label>
+          </div>
+        </section>
+
+        <section class="step" data-step="6">
+          <h2>6. Rythme de vie</h2>
+          <div class="form-grid">
+            <label>Début du travail<input id="setupWorkStart" type="time"></label>
+            <label>Fin du travail<input id="setupWorkEnd" type="time"></label>
+            <label>Jours travaillés / semaine<input id="setupWorkDays" type="number" min="0" max="7"></label>
+            <label>Temps max de tâches un soir (min)<input id="setupWeekdayCap" type="number" min="15" step="15"></label>
+            <label>Temps max par jour le week-end (min)<input id="setupWeekendCap" type="number" min="30" step="30"></label>
+          </div>
+          <div class="choice-grid compact">
+            <button type="button" class="choice-card" data-radio="loadProfile" data-value="light">🌱<strong>Essentiel</strong><small>Le minimum utile</small></button>
+            <button type="button" class="choice-card" data-radio="loadProfile" data-value="balanced">⚖️<strong>Équilibré</strong><small>Bon compromis</small></button>
+            <button type="button" class="choice-card" data-radio="loadProfile" data-value="complete">✨<strong>Complet</strong><small>Entretien poussé</small></button>
+          </div>
+        </section>
+
+        <section class="step" data-step="7">
+          <h2>7. Préférences d’organisation</h2>
+          <div class="toggle-list">
+            <label class="toggle-row"><span>Répartir automatiquement entre les adultes</span><input id="setupAutoBalance" type="checkbox"></label>
+            <label class="toggle-row"><span>Alterner les responsabilités chaque semaine</span><input id="setupRotation" type="checkbox"></label>
+            <label class="toggle-row"><span>Regrouper les tâches similaires</span><input id="setupBatching" type="checkbox"></label>
+            <label class="toggle-row"><span>Garder le dimanche plus léger</span><input id="setupLightSunday" type="checkbox"></label>
+            <label class="toggle-row"><span>Inclure les petites tâches quotidiennes</span><input id="setupDaily" type="checkbox"></label>
+          </div>
+          <div class="final-box">
+            <strong>Prêt à générer votre foyer</strong>
+            <p>Le système créera uniquement les tâches compatibles avec vos choix. Vous pourrez tout modifier ensuite.</p>
+          </div>
+        </section>
+
+        <footer class="setup-actions">
+          <button id="prevStep" class="btn ghost" type="button">← Précédent</button>
+          <span class="spacer"></span>
+          <button id="nextStep" class="btn primary" type="button">Suivant →</button>
+          <button id="finishSetup" class="btn primary hidden" type="button">Créer mon planning</button>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <div id="appScreen" class="app hidden">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">MAISON DUO</p>
+        <h1>Planning du foyer</h1>
+        <p class="subtitle" id="householdSummary"></p>
+      </div>
+      <div class="hero-actions">
+        <button class="btn ghost" id="reconfigureBtn">🏡 Configuration</button>
+        <button class="btn ghost" id="libraryBtn">☰ Tâches</button>
+        <button class="btn primary" id="regenerateBtn">✨ Régénérer</button>
+      </div>
+    </header>
+
+    <section class="stats" id="stats"></section>
+    <main id="weekGrid" class="week-grid"></main>
+  </div>
+
+  <aside id="libraryPanel" class="side-panel">
+    <div class="panel-head">
+      <div><p class="eyebrow">BIBLIOTHÈQUE</p><h2>Tâches générées</h2></div>
+      <button class="close" id="closeLibrary">×</button>
+    </div>
+    <div class="panel-tools">
+      <input id="searchTask" placeholder="Rechercher une tâche">
+      <button class="btn primary" id="addTaskBtn">＋ Ajouter</button>
+    </div>
+    <div id="libraryList" class="library-list"></div>
+  </aside>
+
+  <div id="overlay" class="overlay"></div>
+
+  <dialog id="taskDialog">
+    <form id="taskForm">
+      <div class="dialog-head">
+        <h2 id="taskDialogTitle">Nouvelle tâche</h2>
+        <button type="button" class="close" id="closeTaskDialog">×</button>
+      </div>
+      <label>Nom<input id="taskTitle" required></label>
+      <div class="form-grid">
+        <label>Catégorie<select id="taskCategory">
+          <option value="maison">Maison</option>
+          <option value="linge">Linge</option>
+          <option value="courses">Courses</option>
+          <option value="animaux">Animaux</option>
+          <option value="terrain">Terrain</option>
+          <option value="organisation">Organisation</option>
+        </select></label>
+        <label>Fréquence<select id="taskFrequency">
+          <option value="weekly">Hebdomadaire</option>
+          <option value="biweekly">Tous les 15 jours</option>
+          <option value="monthly">Mensuelle</option>
+          <option value="seasonal">Saisonnière</option>
+        </select></label>
+        <label>Durée (min)<input id="taskDuration" type="number" min="5" step="5"></label>
+        <label>Priorité<select id="taskPriority">
+          <option value="1">Essentielle</option>
+          <option value="2">Normale</option>
+          <option value="3">Confort</option>
+        </select></label>
+      </div>
+      <label class="toggle-row"><span>Active</span><input id="taskEnabled" type="checkbox" checked></label>
+      <div class="dialog-actions">
+        <button type="button" class="btn danger hidden" id="deleteTaskBtn">Supprimer</button>
+        <span class="spacer"></span>
+        <button type="submit" class="btn primary">Enregistrer</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>

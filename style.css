@@ -294,3 +294,123 @@ dialog{width:min(520px,calc(100% - 24px));border:0;border-radius:20px;padding:0}
     transform:scale(.8);
   }
 }
+
+/* =========================
+   V12 — Connexion plus compacte
+   ========================= */
+.auth-screen{
+  padding:20px 14px;
+}
+
+.auth-card-premium{
+  width:min(610px, 92vw);
+  max-width:610px;
+  padding:38px 44px 30px;
+  border-radius:30px;
+}
+
+.auth-card-premium h1{
+  font-size:clamp(46px, 6vw, 64px);
+  margin-bottom:8px;
+}
+
+.auth-brand{
+  margin-bottom:10px;
+  font-size:12px;
+}
+
+.auth-intro{
+  margin-bottom:20px;
+  font-size:17px;
+  line-height:1.35;
+  max-width:500px;
+}
+
+.auth-tabs-premium{
+  margin-bottom:20px;
+}
+
+.auth-tabs-premium .auth-tab{
+  height:54px;
+  font-size:16px;
+}
+
+.auth-form-premium{
+  gap:14px;
+}
+
+.field-label{
+  gap:7px;
+  font-size:13px;
+}
+
+.auth-form-premium input{
+  height:50px;
+  padding:0 16px;
+  border-radius:16px;
+  font-size:15px;
+}
+
+.password-field input{
+  padding-right:56px;
+}
+
+.password-toggle{
+  right:9px;
+  width:36px;
+  height:36px;
+  border-radius:12px;
+  font-size:17px;
+}
+
+.auth-submit{
+  margin-top:5px;
+  min-height:54px;
+  padding:14px 20px;
+  border-radius:16px;
+  font-size:16px;
+}
+
+.auth-submit-arrow{
+  font-size:23px;
+}
+
+.auth-note-wrap{
+  margin-top:24px;
+  padding-top:18px;
+}
+
+.auth-note{
+  font-size:12px;
+  line-height:1.45;
+}
+
+@media (max-width:760px){
+  .auth-card-premium{
+    width:min(520px, 96vw);
+    padding:28px 20px 24px;
+    border-radius:24px;
+  }
+
+  .auth-card-premium h1{
+    font-size:46px;
+  }
+
+  .auth-intro{
+    font-size:16px;
+  }
+
+  .auth-tabs-premium .auth-tab{
+    height:50px;
+    font-size:15px;
+  }
+
+  .auth-form-premium input{
+    height:48px;
+  }
+
+  .auth-submit{
+    min-height:50px;
+    font-size:15px;
+  }
+}

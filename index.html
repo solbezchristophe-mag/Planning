@@ -3,52 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Maison Duo V9</title>
+  <title>Maison Duo V11</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="authScreen" class="auth-screen">
-  <div class="auth-card">
-    <p class="eyebrow">MAISON DUO</p>
-    <h1>Bienvenue</h1>
-    <p class="muted">Connecte-toi pour retrouver ton planning, ou crée un nouveau profil pour repartir de zéro.</p>
 
-    <div class="auth-tabs">
-      <button class="auth-tab active" data-auth="login">Connexion</button>
-      <button class="auth-tab" data-auth="signup">Créer un compte</button>
+<div id="authScreen" class="auth-screen">
+  <div class="auth-ornament auth-ornament-left"></div>
+  <div class="auth-ornament auth-ornament-bottom"></div>
+  <div class="auth-leaf-decor" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="auth-card auth-card-premium">
+    <p class="eyebrow auth-brand">MAISON DUO</p>
+    <h1>Bienvenue</h1>
+    <p class="muted auth-intro">Connecte-toi pour retrouver ton planning, ou crée un nouveau profil pour repartir de zéro.</p>
+
+    <div class="auth-tabs auth-tabs-premium">
+      <button class="auth-tab active" data-auth="login" type="button">Connexion</button>
+      <button class="auth-tab" data-auth="signup" type="button">Créer un compte</button>
     </div>
 
-    <form id="loginForm" class="auth-form">
-      <label>Email
+    <form id="loginForm" class="auth-form auth-form-premium">
+      <label class="field-label">Email
         <input id="loginEmail" type="email" required placeholder="vous@exemple.fr">
       </label>
-      <label>Mot de passe
-        <input id="loginPassword" type="password" required>
+
+      <label class="field-label">Mot de passe
+        <div class="password-field">
+          <input id="loginPassword" type="password" required>
+          <button class="password-toggle" type="button" data-toggle-password="loginPassword" aria-label="Afficher ou masquer le mot de passe">👁</button>
+        </div>
       </label>
-      <button class="btn primary full" type="submit">Ouvrir mon planning</button>
-      <p id="loginError" class="error"></p>
+
+      <button class="btn primary full auth-submit" type="submit">
+        <span>Ouvrir mon planning</span>
+        <span class="auth-submit-arrow">→</span>
+      </button>
+
+      <p id="loginError" class="error auth-error"></p>
     </form>
 
-    <form id="signupForm" class="auth-form hidden">
-      <label>Email
+    <form id="signupForm" class="auth-form auth-form-premium hidden">
+      <label class="field-label">Email
         <input id="signupEmail" type="email" required placeholder="vous@exemple.fr">
       </label>
-      <label>Mot de passe
-        <input id="signupPassword" type="password" required minlength="4">
+
+      <label class="field-label">Mot de passe
+        <div class="password-field">
+          <input id="signupPassword" type="password" required minlength="4">
+          <button class="password-toggle" type="button" data-toggle-password="signupPassword" aria-label="Afficher ou masquer le mot de passe">👁</button>
+        </div>
       </label>
-      <label>Nom du foyer
+
+      <label class="field-label">Nom du foyer
         <input id="signupHomeName" placeholder="Ex. Maison Duo">
       </label>
-      <button class="btn primary full" type="submit">Créer mon profil</button>
-      <p id="signupError" class="error"></p>
+
+      <button class="btn primary full auth-submit" type="submit">
+        <span>Créer mon profil</span>
+        <span class="auth-submit-arrow">→</span>
+      </button>
+
+      <p id="signupError" class="error auth-error"></p>
     </form>
 
-    <p class="auth-note">Cette version enregistre les profils dans le navigateur de cet appareil. Pour une vraie connexion multi-appareils, il faudra ajouter un serveur ou une base de données.</p>
+    <div class="auth-note-wrap">
+      <p class="auth-note">Cette version enregistre les profils dans le navigateur de cet appareil. Pour une vraie connexion multi-appareils, il faudra ajouter un serveur ou une base de données.</p>
+    </div>
   </div>
 </div>
 
-<div id="setupScreen" class="setup-screen hidden">
+<div id="setupScreen"
+ class="setup-screen hidden">
   <div class="setup-shell">
     <header class="setup-head">
       <div>
